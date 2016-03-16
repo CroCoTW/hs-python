@@ -67,9 +67,10 @@ class Game:
 		for card in self.current_player.cards[Tag.Minion]:
 			if not card.can_attack:
 				continue
-			m = Move(type = MoveType.Attack)
-			m.set_entity(card)
+			
 			for target in target_list:
+				m = Move(type = MoveType.Attack)
+				m.set_entity(card)
 				m.set_target(target)			
 				l.append(m)
 		#end_this_turn

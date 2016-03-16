@@ -40,7 +40,7 @@ if __name__ == "__main__":
 	
 	g.do_move(Move(MoveType.EndThisTurn))
 	
-	g.player[1].cards[Tag.Hand] = [Card(1, cp.find("EX1_598")), Card(1, cp.find("EX1_598")), Card(1, cp.find("CS2_171"))]
+	g.player[1].cards[Tag.Hand] = [Card(1, cp.find("EX1_598")), Card(1, cp.find("EX1_598")), Card(1, cp.find("CS2_169"))]
 	
 	
 	g.stage = Stage.Play
@@ -53,8 +53,8 @@ if __name__ == "__main__":
 	moves = g.next_moves()
 	print_moves(moves)
 	
-	g.do_move(moves[1])
-	g.player[2].cards[Tag.Hand] = [Card(2, cp.find("BRMA01_4t")), Card(2, cp.find("CS2_119")), Card(2, cp.find("EX1_tk28"))]
+	g.do_move(moves[0])
+	g.player[2].cards[Tag.Hand] = [Card(2, cp.find("EX1_tk28")), Card(2, cp.find("CS2_119")), Card(2, cp.find("EX1_tk28"))]
 	
 	
 	moves = g.next_moves()
@@ -73,7 +73,8 @@ if __name__ == "__main__":
 	moves = g.next_moves()
 	print_moves(moves)
 	
-	#g.do_move(moves[2])
-	#g.dump()
-	#moves = g.next_moves()
-	#print_moves(moves)
+	g.do_move(moves[2])
+	g.do_move(moves[4])
+	g.dump()
+	moves = g.next_moves()
+	print_moves(moves)

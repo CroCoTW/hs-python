@@ -86,7 +86,7 @@ if __name__ == '__main__':
 					break
 			each["pretty_desc"] = list(map(str.lstrip, each["desc"]))	
 			
-			if each["cost"] == 1 and each["type"] == "MINION" and "mechanics" in each and "CHARGE" in each["mechanics"]:
+			if each["cost"] == 1 and each["type"] == "MINION" and "mechanics" in each and "WINDFURY" in each["mechanics"]:
 				print(each["id"])
 				print(each)
 			

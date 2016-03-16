@@ -41,7 +41,8 @@ class Card:
 		
 	@property
 	def can_attack(self):
-		return self.attack > 0 and (self.buffs[Buff.Charge] or not self.just_summon) and self.attack_this_turn == 0  # FIXME: charge windfurry
+		return self.attack > 0 and (self.buffs[Buff.Charge] or not self.just_summon) \
+			and self.attack_this_turn == 0 or (self.buffs[Buff.Windfury] and self.attack_this_turn == 1)
 		
 	@property
 	def is_attack_target(self):
@@ -77,7 +78,7 @@ class Card:
 		
 		#buffs
 		self.buffs[Buff.Taunt] = has_mech and "TAUNT" in self.info["mechanics"]
-		self.buffs[Buff.Windfurry] = has_mech and "WINDFURY" in self.info["mechanics"]
+		self.buffs[Buff.Windfury] = has_mech and "WINDFURY" in self.info["mechanics"]
 		self.buffs[Buff.Stealth] = has_mech and "STEALTH" in self.info["mechanics"]
 		self.buffs[Buff.Charge] = has_mech and "CHARGE" in self.info["mechanics"]
 		self.buffs[Buff.DivineShield] = has_mech and "DIVINE_SHIELD" in self.info["mechanics"]

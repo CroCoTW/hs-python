@@ -27,28 +27,28 @@ class MoveType(Enum):
 {
     "mechanics": {
 		"TAUNT": 72, Done!!
-        "WINDFURY": 12,
-		"CHARGE": 27,
-        "STEALTH": 13,
-        "DIVINE_SHIELD": 14,
+		"WINDFURY": 12, Done!!
+		"CHARGE": 27, Done !!
+		"STEALTH": 13,
+		"DIVINE_SHIELD": 14,
 		"FREEZE": 14,
 		"FORGETFUL": 2,
-        "OVERLOAD": 19,
+		"OVERLOAD": 19,
 		"SPELLPOWER": 13,
 		"ENRAGED": 7,
 		"INSPIRE": 21,
-        "COMBO": 12,
-        "DEATHRATTLE": 71,
-        "BATTLECRY": 183,
-        "MORPH": 3,
-        "POISONOUS": 4,
-        "SECRET": 22,
-        "SILENCE": 4,
-        "TAG_ONE_TURN_EFFECT": 33,
-        "ADJACENT_BUFF": 2,
-        "AURA": 41
-        "ImmuneToSpellpower": 16,
-        "InvisibleDeathrattle": 9,
+		"COMBO": 12,
+		"DEATHRATTLE": 71,
+		"BATTLECRY": 183,
+		"MORPH": 3,
+		"POISONOUS": 4,
+		"SECRET": 22,
+		"SILENCE": 4,
+		"TAG_ONE_TURN_EFFECT": 33,
+		"ADJACENT_BUFF": 2,
+		"AURA": 41
+		"ImmuneToSpellpower": 16,
+		"InvisibleDeathrattle": 9,
     },
     "type": {
         "ENCHANTMENT": 326,
@@ -64,7 +64,7 @@ class MoveType(Enum):
 
 class Buff(Enum):
 	Taunt = 0
-	Windfurry = 1
+	Windfury = 1
 	Charge = 2
 	Stealth = 3
 	DivineShield = 4
