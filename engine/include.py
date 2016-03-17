@@ -7,13 +7,13 @@ class Tag(Enum):
 	Deck = 4
 	HeroPower = 5
 	Secrete = 6
-	
+
 class Stage(Enum):
 	Mulligan = 1
 	Play = 2
 	Decide = 3
 	Random = 4
-	
+
 
 class MoveType(Enum):
 	EndThisTurn = 1
@@ -21,7 +21,7 @@ class MoveType(Enum):
 	Attack = 3
 	Decide = 4
 	Random = 5
-	
+
 
 '''
 {
@@ -29,7 +29,7 @@ class MoveType(Enum):
 		"TAUNT": 72, Done!!
 		"WINDFURY": 12, Done!!
 		"CHARGE": 27, Done !!
-		"STEALTH": 13,
+		"STEALTH": 13, Done !!
 		"DIVINE_SHIELD": 14,
 		"FREEZE": 14,
 		"FORGETFUL": 2,
@@ -74,11 +74,11 @@ class Buff(Enum):
 	Poisonous = 8
 	Aura = 9
 	ImmuneToSpellpower = 10
-	
+
 class Trigger(Enum):
 	Enraged = 0
 	Inspire = 1
 	Combo = 2
 	Battlecry = 3
 	Dealthrattle = 4
-	
+

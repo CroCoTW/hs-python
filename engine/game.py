@@ -15,21 +15,21 @@ class Player:
 		self.resource = 0
 		self.max_resource = 0
 		self.lost = False
-		
+
 	def minions(self):
 		str = ""
-		
+
 		for m in self.cards[Tag.Minion]:
 			k = "{0} ({3}-{1}/{2}){4} ".format(m.name, m.hp, m.max_hp, m.attack, m.attack_this_turn)
 			str += k
-			
+
 		return str
-	
+
 	def dump(self):
 		str = 'Hero {0}\n' \
 			'Crystal {1}/{2}\n' \
 			'Minions {3} {4}\n'.format(self.cards[Tag.Hero].__dict__, self.resource, self.max_resource, len(self.cards[Tag.Minion]), self.minions())
-			
+
 		print (str)
 
 class Game:
@@ -37,8 +37,8 @@ class Game:
 		self.id = 1
 		self.player = [0, Player(1), Player(2)]
 		self.stage = Stage.Mulligan
-		
-	def init_games(self, hero1, hero2, deck1):	
+
+	def init_games(self, hero1, hero2, deck1):
 		self.player[1].cards[Tag.Hero] = hero1
 		self.player[2].cards[Tag.Hero] = hero2
 		self.current_player = self.player[1]
@@ -63,20 +63,20 @@ class Game:
 			target_list.append(self.opp_player.cards[Tag.Hero])
 			target_list = list(filter(lambda x : x.is_attack_target, target_list))
 
-		
+
 		for card in self.current_player.cards[Tag.Minion]:
 			if not card.can_attack:
 				continue
-			
+
 			for target in target_list:
 				m = Move(type = MoveType.Attack)
 				m.set_entity(card)
-				m.set_target(target)			
+				m.set_target(target)
 				l.append(m)
 		#end_this_turn
 		l.append(Move(MoveType.EndThisTurn))
 		return l
-		
+
 	def next_moves(self):
 		if self.stage == Stage.Mulligan:
 			return range(0, 8) if self.current_player is self.player[1] else range(0, 16)
@@ -92,11 +92,11 @@ class Game:
 		if self.current_player.max_resource < 10:
 			self.current_player.max_resource += 1
 		self.current_player.resource = self.current_player.max_resource
-		
+
 		for each in self.current_player.cards[Tag.Minion]:
 			each.begin_turn()
 		# increase resouce.
-	
+
 	def play_card(self, move):
 		card = move.entity
 		self.current_player.cards[Tag.Hand].remove(card)
@@ -111,10 +111,10 @@ class Game:
 			pass
 		else: # should be spell
 			pass
-			
+
 	def is_ended(self):
 		return self.current_player.is_lost or self.opp_player.is_lost
-		
+
 	def check_death(self):
 		for each_player in self.player[1:]:
 			for minion in each_player.cards[Tag.Minion]:
@@ -123,11 +123,11 @@ class Game:
 					each_player.cards[Tag.Minion].remove(minion)
 					if minion.buffs[Buff.Taunt]:
 						each_player.taunts.remove(minion)
-					
+
 		for each_player in self.player[1:]:
 			if each_player.cards[Tag.Hero].is_dead:
 				each_play.is_lost = True
-	
+
 	def attack(self, move):
 	# 	if move.target is None:
 	#		raise Exception
@@ -135,16 +135,16 @@ class Game:
 		move.entity.attack_once()
 		if move.target.tag == Tag.Minion:
 			move.entity.take_damage(move.target.attack)
-			
+
 		self.check_death()
 		pass
-		
+
 	def decide(self, move):
 		pass
-		
+
 	def random(self, move):
 		pass
-		
+
 	def do_move(self, move):
 		switch = {
 			MoveType.EndThisTurn : self.end_this_turn,
@@ -153,18 +153,18 @@ class Game:
 			MoveType.Decide : self.decide,
 			MoveType.Random : self.random
 		}
-		
+
 		return switch[move.type](move)
 
 	def dump(self):
 		print ("********************")
 		for player in self.player[1:]:
 			player.dump()
-	
 
-		
 
-	
-	
-	
-	
+
+
+
+
+
+
